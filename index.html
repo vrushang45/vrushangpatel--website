@@ -530,27 +530,29 @@
       </div>
 
       <div class="bg-surface border border-surfaceBorder rounded-2xl p-6 sm:p-10 shadow-xl">
-        <form id="contactForm" onsubmit="handleForm(event)" class="space-y-5">
+        <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleForm(event)" class="space-y-5">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden"><label>Leave this empty: <input name="bot-field" /></label></p>
           
           <div class="grid sm:grid-cols-2 gap-5">
             <div>
               <label for="name" class="block text-xs font-mono font-medium text-slate-300 mb-2 uppercase">Your Name *</label>
-              <input type="text" id="name" required placeholder="John Doe" class="w-full bg-bgDark border border-surfaceBorder rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brandCyan transition-colors" />
+              <input type="text" id="name" name="name" required placeholder="John Doe" class="w-full bg-bgDark border border-surfaceBorder rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brandCyan transition-colors" />
             </div>
             <div>
               <label for="email" class="block text-xs font-mono font-medium text-slate-300 mb-2 uppercase">Email Address *</label>
-              <input type="email" id="email" required placeholder="john@company.com" class="w-full bg-bgDark border border-surfaceBorder rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brandCyan transition-colors" />
+              <input type="email" id="email" name="email" required placeholder="john@company.com" class="w-full bg-bgDark border border-surfaceBorder rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brandCyan transition-colors" />
             </div>
           </div>
 
           <div class="grid sm:grid-cols-2 gap-5">
             <div>
               <label for="url" class="block text-xs font-mono font-medium text-slate-300 mb-2 uppercase">Website URL *</label>
-              <input type="url" id="url" required placeholder="https://example.com" class="w-full bg-bgDark border border-surfaceBorder rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brandCyan transition-colors" />
+              <input type="url" id="url" name="website" required placeholder="https://example.com" class="w-full bg-bgDark border border-surfaceBorder rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brandCyan transition-colors" />
             </div>
             <div>
               <label for="serviceType" class="block text-xs font-mono font-medium text-slate-300 mb-2 uppercase">Primary Focus *</label>
-              <select id="serviceType" class="w-full bg-bgDark border border-surfaceBorder rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brandCyan transition-colors">
+              <select id="serviceType" name="focus" class="w-full bg-bgDark border border-surfaceBorder rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brandCyan transition-colors">
                 <option value="Enterprise SaaS SEO">Enterprise SaaS SEO</option>
                 <option value="AEO & GEO (AI Search Optimization)">AEO & GEO (AI Search Optimization)</option>
                 <option value="Technical SEO & Crawl Audit">Technical SEO & Crawl Audit</option>
@@ -563,7 +565,7 @@
 
           <div>
             <label for="notes" class="block text-xs font-mono font-medium text-slate-300 mb-2 uppercase">Core Challenge or Goal</label>
-            <textarea id="notes" rows="3" placeholder="Tell me briefly about your current bottleneck, upcoming product launch, or organic traffic targets..." class="w-full bg-bgDark border border-surfaceBorder rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brandCyan transition-colors"></textarea>
+            <textarea id="notes" name="message" rows="3" placeholder="Tell me briefly about your current bottleneck, upcoming product launch, or organic traffic targets..." class="w-full bg-bgDark border border-surfaceBorder rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brandCyan transition-colors"></textarea>
           </div>
 
           <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-white hover:bg-slate-100 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all shadow-md">
@@ -670,17 +672,29 @@
     // Clean form submit handling
     function handleForm(e) {
       e.preventDefault();
+      const form = document.getElementById('contactForm');
       const btn = document.getElementById('submitBtn');
       const success = document.getElementById('formSuccess');
 
       btn.disabled = true;
       btn.innerText = 'Transmitting Domain Details...';
 
-      setTimeout(() => {
-        btn.classList.add('hidden');
-        success.classList.remove('hidden');
-        document.getElementById('contactForm').reset();
-      }, 700);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+        .then((res) => {
+          if (!res.ok) throw new Error('Status ' + res.status);
+          btn.classList.add('hidden');
+          success.classList.remove('hidden');
+          form.reset();
+        })
+        .catch(() => {
+          btn.disabled = false;
+          btn.innerText = 'Submit Domain for Review';
+          alert('Sorry, your message could not be sent. Please email vrushangp14@gmail.com directly.');
+        });
     }
   </script>
 </body>
