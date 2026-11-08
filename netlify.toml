@@ -1,0 +1,6 @@
+# This site is a static HTML page with no build step.
+# These settings override the build command and publish directory
+# configured in the Netlify UI (which expected a Vite project).
+[build]
+  command = "echo 'No build step required for static site'"
+  publish = "."
