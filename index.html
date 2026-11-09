@@ -118,63 +118,90 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <header class="relative z-10 pt-16 pb-20 sm:pt-24 sm:pb-28">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      
-      <!-- Clean Status Pill -->
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface border border-surfaceBorder text-xs text-slate-300 mb-6">
-        <span class="w-2 h-2 rounded-full bg-brandGreen animate-pulse"></span>
-        <span class="font-medium">4+ Years SEO Experience &bull; Available for Select Retainers</span>
+  
+<!-- HERO SECTION -->
+<header class="relative z-10 pt-16 pb-20 sm:pt-24 sm:pb-28">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+      <!-- LEFT SIDE: CONTENT -->
+      <div>
+
+        <!-- Status Pill -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface border border-surfaceBorder text-xs text-slate-300 mb-6">
+          <span class="w-2 h-2 rounded-full bg-brandGreen animate-pulse"></span>
+          <span class="font-medium">4+ Years SEO Experience &bull; Available for Select Retainers</span>
+        </div>
+
+        <!-- Main Headline -->
+        <div class="space-y-5">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
+            Turning Organic Search & AI Engines Into
+            <span class="text-glow text-transparent">Predictable Pipeline.</span>
+          </h1>
+
+          <p class="text-base sm:text-xl text-slate-400 leading-relaxed font-normal">
+            Helping businesses scale organic traffic, dominate keyword rankings, and capture citations across Google and emerging AI search engines through data-driven technical, on-page, and local SEO.
+          </p>
+        </div>
+
+        <!-- Quick Metrics -->
+        <div class="grid grid-cols-2 gap-4 mt-10 mb-8">
+          <div class="bg-surface border border-surfaceBorder p-4 rounded-2xl">
+            <p class="text-2xl sm:text-3xl font-extrabold text-white">4+ Yrs</p>
+            <p class="text-xs text-slate-400 font-mono mt-1">SEO & AEO Mastery</p>
+          </div>
+
+          <div class="bg-surface border border-surfaceBorder p-4 rounded-2xl">
+            <p class="text-2xl sm:text-3xl font-extrabold text-brandGreen">22+</p>
+            <p class="text-xs text-slate-400 font-mono mt-1">Global Sites Scaled</p>
+          </div>
+
+          <div class="bg-surface border border-surfaceBorder p-4 rounded-2xl">
+            <p class="text-2xl sm:text-3xl font-extrabold text-brandCyan">B.Tech</p>
+            <p class="text-xs text-slate-400 font-mono mt-1">Computer Science</p>
+          </div>
+
+          <div class="bg-surface border border-surfaceBorder p-4 rounded-2xl">
+            <p class="text-2xl sm:text-3xl font-extrabold text-slate-100">100%</p>
+            <p class="text-xs text-slate-400 font-mono mt-1">White-Hat Standard</p>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="#contact" class="px-7 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-950 font-bold text-sm tracking-wide transition-all shadow-lg flex items-center gap-2">
+            <span>Get in Touch</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+
+          <button onclick="openAuditModal()" class="px-6 py-3.5 rounded-xl bg-surface hover:bg-surfaceHover border border-surfaceBorder text-slate-200 font-semibold text-sm transition-colors flex items-center gap-2">
+            <i data-lucide="clipboard-list" class="w-4 h-4 text-brandCyan"></i>
+            <span>View 25-Point Checklist</span>
+          </button>
+
+          <a href="https://linkedin.com/in/vrushang-patel-seo-analyst" target="_blank" rel="noopener" class="p-3.5 rounded-xl bg-surface hover:bg-surfaceHover border border-surfaceBorder text-slate-400 hover:text-white transition-colors" title="LinkedIn Profile">
+            <i data-lucide="linkedin" class="w-5 h-5"></i>
+          </a>
+        </div>
+
       </div>
 
-      <!-- Main Headline -->
-      <div class="max-w-4xl space-y-5">
-        <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
-          Turning Organic Search & AI Engines Into <span class="text-glow text-transparent">Predictable Pipeline.</span>
-        </h1>
-        <p class="text-base sm:text-xl text-slate-400 leading-relaxed max-w-3xl font-normal">
-          Helping businesses scale organic traffic, dominate keyword rankings, and capture citations across Google and emerging AI search engines through data-driven technical, on-page, and local SEO.
-        </p>
-      </div>
-
-      <!-- Quick Metrics Strip -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 mb-10 max-w-4xl">
-        <div class="bg-surface border border-surfaceBorder p-4 rounded-2xl">
-          <p class="text-2xl sm:text-3xl font-extrabold text-white">4+ Yrs</p>
-          <p class="text-xs text-slate-400 font-mono mt-1">SEO & AEO Mastery</p>
+      <!-- RIGHT SIDE: PROFILE PHOTO -->
+      <div class="flex justify-center md:justify-end">
+        <div class="w-full max-w-sm lg:max-w-md">
+          <img
+            src="/profile.jpg"
+            alt="Vrushang Patel"
+            class="w-full aspect-[4/5] object-cover rounded-3xl border border-surfaceBorder shadow-2xl"
+          />
         </div>
-        <div class="bg-surface border border-surfaceBorder p-4 rounded-2xl">
-          <p class="text-2xl sm:text-3xl font-extrabold text-brandGreen">22+</p>
-          <p class="text-xs text-slate-400 font-mono mt-1">Global Sites Scaled</p>
-        </div>
-        <div class="bg-surface border border-surfaceBorder p-4 rounded-2xl">
-          <p class="text-2xl sm:text-3xl font-extrabold text-brandCyan">B.Tech</p>
-          <p class="text-xs text-slate-400 font-mono mt-1">Computer Science</p>
-        </div>
-        <div class="bg-surface border border-surfaceBorder p-4 rounded-2xl">
-          <p class="text-2xl sm:text-3xl font-extrabold text-slate-100">100%</p>
-          <p class="text-xs text-slate-400 font-mono mt-1">White-Hat Standard</p>
-        </div>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="flex flex-wrap items-center gap-4">
-        <a href="#contact" class="px-7 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-950 font-bold text-sm tracking-wide transition-all shadow-lg hover:shadow-cyan-500/10 flex items-center gap-2">
-          <span>Get in Touch</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </a>
-        <button onclick="openAuditModal()" class="px-6 py-3.5 rounded-xl bg-surface hover:bg-surfaceHover border border-surfaceBorder text-slate-200 font-semibold text-sm transition-colors flex items-center gap-2">
-          <i data-lucide="clipboard-list" class="w-4 h-4 text-brandCyan"></i>
-          <span>View 25-Point Checklist</span>
-        </button>
-        <a href="https://linkedin.com/in/vrushang-patel-seo-analyst" target="_blank" rel="noopener" class="p-3.5 rounded-xl bg-surface hover:bg-surfaceHover border border-surfaceBorder text-slate-400 hover:text-white transition-colors" title="LinkedIn Profile">
-          <i data-lucide="linkedin" class="w-5 h-5"></i>
-        </a>
       </div>
 
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- CONTACT QUICK BAR -->
   <section class="border-y border-surfaceBorder bg-surface/50 py-4 relative z-10 text-xs sm:text-sm text-slate-300 font-mono">
